@@ -204,14 +204,6 @@ export function RestaurantMenu({ restaurant, onBack }: RestaurantMenuProps) {
       <header className="sticky top-0 z-40 bg-white border-b shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center gap-3 mb-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={onBack}
-              className="shrink-0"
-            >
-              <ArrowLeft className="size-5" />
-            </Button>
             <div className="flex-1">
               <h2 className="text-xl font-bold text-gray-900">Cardápio</h2>
             </div>

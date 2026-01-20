@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { ArrowLeft, Loader2 } from 'lucide-react';
-import { Button } from '@/app/components/ui/button';
+import { Loader2 } from 'lucide-react';
 import { RestaurantMenu } from './RestaurantMenu';
 import type { Restaurant } from './RestaurantCard';
 
@@ -102,20 +101,6 @@ export function RestaurantPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="sticky top-0 z-40 bg-white border-b">
-        <div className="container mx-auto px-4 py-4 flex items-center">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => navigate('/')}
-            className="mr-4"
-          >
-            <ArrowLeft className="w-5 h-5" />
-          </Button>
-          <h1 className="text-xl font-bold text-gray-900">Voltar</h1>
-        </div>
-      </header>
-
       <RestaurantMenu restaurant={restaurant} onBack={() => navigate('/')} />
     </div>
   );
