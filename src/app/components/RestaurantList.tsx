@@ -1,16 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Search, Loader2, Store, MapPin } from 'lucide-react';
 import { RestaurantCard, type Restaurant } from './RestaurantCard';
 import { Button } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
 
-interface RestaurantListProps {
-  onSelectRestaurant: (restaurant: Restaurant) => void;
-  onBack: () => void;
-}
-
-export function RestaurantList({ onSelectRestaurant, onBack }: RestaurantListProps) {
+export function RestaurantList() {
+  const navigate = useNavigate();
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -102,7 +99,7 @@ export function RestaurantList({ onSelectRestaurant, onBack }: RestaurantListPro
             <Button
               variant="ghost"
               size="icon"
-              onClick={onBack}
+              onClick={() => navigate('/')}
               className="shrink-0 mt-1"
             >
               <ArrowLeft className="size-5" />
@@ -177,7 +174,6 @@ export function RestaurantList({ onSelectRestaurant, onBack }: RestaurantListPro
               <RestaurantCard
                 key={restaurant.id}
                 restaurant={restaurant}
-                onClick={() => onSelectRestaurant(restaurant)}
               />
             ))}
           </div>

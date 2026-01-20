@@ -1,12 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ChefHat, Sparkles } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
 
-interface HomePageProps {
-  onStart: () => void;
-}
+export function HomePage() {
+  const navigate = useNavigate();
 
-export function HomePage({ onStart }: HomePageProps) {
+  const handleStart = () => {
+    navigate('/restaurantes');
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-red-50 p-4">
       <div className="max-w-2xl w-full text-center space-y-8">
@@ -55,7 +57,7 @@ export function HomePage({ onStart }: HomePageProps) {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <Button
-            onClick={onStart}
+            onClick={handleStart}
             size="lg"
             className="text-lg px-8 py-6 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 shadow-xl hover:shadow-2xl transition-all"
           >
